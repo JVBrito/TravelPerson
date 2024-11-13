@@ -1,0 +1,12 @@
+org\travel\person\bean\AddressBean.class
+org\travel\person\bean\PersonBean.class
+org\travel\person\dao\PersonDAO.class
+org\travel\person\model\Address.class
+org\travel\person\bean\ContactBean.class
+org\travel\person\model\Person.class
+org\travel\person\dao\AddressDAO.class
+org\travel\person\dao\DocumentDAO.class
+org\travel\person\bean\DocumentBean.class
+org\travel\person\model\Document.class
+org\travel\person\model\Contact.class
+org\travel\person\dao\ContactDAO.class

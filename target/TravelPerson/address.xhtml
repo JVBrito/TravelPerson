@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Address Management</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:panel header="Address Form">
+            <h:outputLabel value="Address:" />
+            <p:inputText value="#{addressBean.address.address}" />
+
+            <h:outputLabel value="Number:" />
+            <p:inputText value="#{addressBean.address.number}" />
+
+            <h:outputLabel value="City:" />
+            <p:inputText value="#{addressBean.address.city}" />
+
+            <h:outputLabel value="State:" />
+            <p:inputText value="#{addressBean.address.state}" />
+
+            <h:outputLabel value="Country:" />
+            <p:inputText value="#{addressBean.address.country}" />
+
+            <p:commandButton value="Save" action="#{addressBean.save}" update="@form" />
+        </p:panel>
+
+        <p:dataTable value="#{addressBean.addresses}" var="address" editable="true">
+            <p:column headerText="Address">
+                #{address.address}
+            </p:column>
+            <p:column headerText="Number">
+                #{address.number}
+            </p:column>
+            <p:column headerText="City">
+                #{address.city}
+            </p:column>
+            <p:column headerText="State">
+                #{address.state}
+            </p:column>
+            <p:column headerText="Country">
+                #{address.country}
+            </p:column>
+            <p:column headerText="Actions">
+                <p:commandButton value="Delete" action="#{addressBean.delete(address)}" update="@form" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

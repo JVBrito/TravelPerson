@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Document Management</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:panel header="Document Form">
+            <h:outputLabel value="Document Number:" />
+            <p:inputText value="#{documentBean.document.documentNumber}" />
+
+            <h:outputLabel value="Document Type:" />
+            <p:inputText value="#{documentBean.document.documentType}" />
+
+            <p:commandButton value="Save" action="#{documentBean.save}" update="@form" />
+        </p:panel>
+
+        <p:dataTable value="#{documentBean.documents}" var="document" editable="true">
+            <p:column headerText="Document Number">
+                #{document.documentNumber}
+            </p:column>
+            <p:column headerText="Document Type">
+                #{document.documentType}
+            </p:column>
+            <p:column headerText="Actions">
+                <p:commandButton value="Delete" action="#{documentBean.delete(document)}" update="@form" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

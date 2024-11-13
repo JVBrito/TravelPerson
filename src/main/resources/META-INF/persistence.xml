@@ -1,0 +1,27 @@
+<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+    <persistence-unit name="travelpersonPU">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>org.travel.person.model.Person</class>
+        <class>org.travel.person.model.Address</class>
+        <class>org.travel.person.model.Contact</class>
+        <class>org.travel.person.model.Document</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/travelperson"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="Tb8Hhkd0dbfswa963g0Q5ev6iH6FjcTt"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.schema-generation.create-database-schemas" value="true" />
+            <property name="jakarta.persistence.schema-generation.scripts.action" value="create" />
+            <property name="jakarta.persistence.schema-generation.scripts.create-target" value="META-INF/create.sql"/>
+            <property name="jakarta.persistence.schema-generation.scripts.drop-target" value="META-INF/drop.sql"/>
+            <property name="hibernate.dialect"    value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql"   value="true" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>

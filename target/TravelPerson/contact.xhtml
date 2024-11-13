@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Contact Management</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:panel header="Contact Form">
+            <h:outputLabel value="Name:" />
+            <p:inputText value="#{contactBean.contact.name}" />
+
+            <h:outputLabel value="Telephone:" />
+            <p:inputText value="#{contactBean.contact.telephone}" />
+
+            <h:outputLabel value="Email:" />
+            <p:inputText value="#{contactBean.contact.email}" />
+
+            <p:commandButton value="Save" action="#{contactBean.save}" update="@form" />
+        </p:panel>
+
+        <p:dataTable value="#{contactBean.contacts}" var="contact" editable="true">
+            <p:column headerText="Name">
+                #{contact.name}
+            </p:column>
+            <p:column headerText="Telephone">
+                #{contact.telephone}
+            </p:column>
+            <p:column headerText="Email">
+                #{contact.email}
+            </p:column>
+            <p:column headerText="Actions">
+                <p:commandButton value="Delete" action="#{contactBean.delete(contact)}" update="@form" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
